@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import { GoogleMapLoader, GoogleMap, InfoWindow, Marker } from "react-google-maps";
 
+import { connect } from 'react-redux';
 
-export default class Map extends Component {
+import data from '../data/data.json';
+
+class Map extends Component  {
 
 	state = {
     center: {
@@ -14,15 +17,15 @@ export default class Map extends Component {
     markers: [
       {
         position: new google.maps.LatLng(-27.363882, 137.044922),
-        showInfo: false
+        showInfo: true
       },
       {
         position: new google.maps.LatLng(-23.363882, 129.044922),
-        showInfo: false  
+        showInfo: true  
       }
     ]
   }
-
+  
   handleMarkerClick(marker) {
     marker.showInfo = true;
     this.setState(this.state);
@@ -76,8 +79,16 @@ export default class Map extends Component {
   }
 
   render() {
+
+    const { shops, pharmacies } = this.props.places;
+    console.log({ shops });
+
     return (
       <section style={{ height: `400px`, width: `400px` }}>
+
+    	 <div><pre>{JSON.stringify(data, null) }</pre></div>
+       <hr />
+
       <GoogleMapLoader
         containerElement={
           <div
@@ -93,16 +104,17 @@ export default class Map extends Component {
             defaultZoom={4}
             ref='map'>
             
-            {this.state.markers.map((marker, index) => 
-              
+            {shops.position.map((marker, index) => 
+
               {
               
               const ref = `marker_${index}`;
+              console.log(ref)
               
               return ( <Marker 
                 key={index}
                 ref={ref}
-                position={marker.position}
+                position={ marker.pos }
                 onClick={this.handleMarkerClick.bind(this, marker)} >
                 
                 {marker.showInfo ? this.renderInfoWindow(ref, marker) : null}
@@ -123,3 +135,10 @@ export default class Map extends Component {
   }
 }
 
+function mapStateToProps (state) {
+  return {
+    places: state
+  }
+}
+
+export default connect(mapStateToProps)(Map)

@@ -6,7 +6,7 @@ import {
   Marker
 } from "react-google-maps";
 
-const SimpleMap = props => (
+const Map = props => (
   <section style={{ height: `400px`, width: `400px` }}>
     <GoogleMapLoader
       containerElement={
@@ -37,4 +37,4 @@ const SimpleMap = props => (
   </section>
 );
 
-export default SimpleMap;
+export default Map;

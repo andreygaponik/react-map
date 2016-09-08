@@ -1,9 +1,4 @@
-import {
-  default as React,
-  Component,
-} from "react";
-
-import update from "react-addons-update";
+import { default as React, Component } from "react";
 
 import { GoogleMapLoader, GoogleMap, InfoWindow, Marker } from "react-google-maps";
 

@@ -1,15 +1,11 @@
-import {
-  default as React,
-  Component,
-} from "react";
-
-import update from "react-addons-update";
+import React, { Component } from 'react'
 
 import { GoogleMapLoader, GoogleMap, InfoWindow, Marker } from "react-google-maps";
 
-export default class PopUpInfoWindow extends Component {
 
-  state = {
+export default class Map extends Component {
+
+	state = {
     center: {
       lat: -25.363882,
       lng: 131.044922,
@@ -26,7 +22,7 @@ export default class PopUpInfoWindow extends Component {
       }
     ]
   }
-  
+
   handleMarkerClick(marker) {
     marker.showInfo = true;
     this.setState(this.state);
@@ -36,11 +32,11 @@ export default class PopUpInfoWindow extends Component {
     marker.showInfo = false;
     this.setState(this.state);
   }
-  
+
   renderInfoWindow(ref, marker) {
     
     return (
-      
+
       <InfoWindow 
         key={`${ref}_info_window`}
         onCloseclick={this.handleMarkerClose.bind(this, marker)} >
@@ -80,9 +76,8 @@ export default class PopUpInfoWindow extends Component {
   }
 
   render() {
-
     return (
-      
+      <section style={{ height: `400px`, width: `400px` }}>
       <GoogleMapLoader
         containerElement={
           <div
@@ -122,7 +117,9 @@ export default class PopUpInfoWindow extends Component {
         }
       
       />
+      </section>
         
     );
   }
 }
+

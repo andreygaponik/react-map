@@ -27,12 +27,20 @@ const initialState = {
 			showInfo: true
 		}
 	],
-	center: {
-    lat: -25.363882,
-    lng: 131.044922
-  }
+	clubs: [
+		{
+			position: new google.maps.LatLng(-25.363882, 130.044922),
+			showInfo: false
+		}
+	]
 }
 
-export default function places(state = initialState) {
-  return state;
+export default function places(state = initialState, action) {
+  switch (action.type) {
+    case 'FETCH_LOCATIONS_START':
+      return { ...state, clubs: action.payload }
+
+    default:
+      return state;
+  }
 }

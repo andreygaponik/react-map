@@ -11,19 +11,8 @@ class Map extends Component  {
 	state = {
     center: {
       lat: -25.363882,
-      lng: 131.044922,
-    },
-    
-    markers: [
-      {
-        position: new google.maps.LatLng(-27.363882, 137.044922),
-        showInfo: true
-      },
-      {
-        position: new google.maps.LatLng(-23.363882, 129.044922),
-        showInfo: true  
-      }
-    ]
+      lng: 131.044922
+    }
   }
   
   handleMarkerClick(marker) {
@@ -80,8 +69,8 @@ class Map extends Component  {
 
   render() {
 
-    const { shops, pharmacies } = this.props.places;
-    console.log({ shops });
+    const { shops } = this.props.shops;
+    const { pharmacies } = this.props.pharmacies
 
     return (
       <section style={{ height: `400px`, width: `400px` }}>
@@ -104,17 +93,16 @@ class Map extends Component  {
             defaultZoom={4}
             ref='map'>
             
-            {shops.position.map((marker, index) => 
+            {pharmacies.map((marker, index) => 
 
               {
               
               const ref = `marker_${index}`;
-              console.log(ref)
               
               return ( <Marker 
                 key={index}
                 ref={ref}
-                position={ marker.pos }
+                position={ marker.position }
                 onClick={this.handleMarkerClick.bind(this, marker)} >
                 
                 {marker.showInfo ? this.renderInfoWindow(ref, marker) : null}
@@ -137,7 +125,8 @@ class Map extends Component  {
 
 function mapStateToProps (state) {
   return {
-    places: state
+    shops: state.shops,
+    pharmacies: state.pharmacies
   }
 }
 

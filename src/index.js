@@ -1,16 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux'; 
-import { createStore } from 'redux'
-import Map from './components/Map';
-import configureStore from './store/configureStore'
+import { createStore } from 'redux';
+import App from './containers/App';
+import configureStore from './store/configureStore';
 
-const store = configureStore()
-console.log(store)
+const store = configureStore();
+
+console.log(store.getState())
 
 render(
 	<Provider store={store}>
-  	<Map data='data.json' />
+  	<App data='data.json' />
   </Provider>,
   document.getElementById('root')
 );

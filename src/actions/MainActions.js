@@ -1,12 +1,20 @@
-const FETCH_LOCATIONS_START = 'FETCH_LOCATIONS_START';
-const FETCH_LOCATIONS_ERROR = 'FETCH_LOCATIONS_ERROR'
-const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS'
-const UPDATE_LOCATIONS = 'UPDATE_LOCATIONS'
+export const FETCH_LOCATIONS_START = 'FETCH_LOCATIONS_START';
+export const FETCH_LOCATIONS_ERROR = 'FETCH_LOCATIONS_ERROR';
+export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
+export const GET_LOCATION = 'GET_LOCATION';
+export const UPDATE_LOCATIONS = 'UPDATE_LOCATIONS';
 
-export function test() {
+export function getPlaces(test) {
+  return (dispatch) => {
+    dispatch({
+      type: FETCH_LOCATIONS_START ,
+      fetching: true
+    })
 
-  return {
-    type: 'FETCH_LOCATIONS_START'
+      dispatch({
+        type: FETCH_LOCATIONS_SUCCESS,
+        payload: test
+      })
   }
-
 }
+

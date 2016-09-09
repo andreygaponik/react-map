@@ -1,8 +1,24 @@
 {
-	"shops": {
-		"locations": [1,2,3,4,5]
-	},
-	"pharmacies": {
-		"locations": [1,2,3,4,5]
-	}
+	"houses": [
+		{
+			"position": "new google.maps.LatLng(-25.363884, 130.044922)",
+			"showInfo": false
+		},
+		{
+			"position": "new google.maps.LatLng(-20.363883, 130.044921)",
+			"showInfo": false
+		},
+		{
+			"position": "new google.maps.LatLng(-20.363881, 136.044922)",
+			"showInfo": false
+		},
+		{
+			"position": "new google.maps.LatLng(-24.363885, 136.044923)",
+			"showInfo": false
+		},
+		{
+			"position": "new google.maps.LatLng(-25.363885, 133.044923)",
+			"showInfo": false
+		}
+	]
 }

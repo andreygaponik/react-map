@@ -1,0 +1,8 @@
+.map button {
+	border: 0;
+	padding: 15px;
+	margin-right: 5px;
+	cursor: pointer;
+	background: #bac3f9;
+	outline: 0
+}

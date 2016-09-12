@@ -8,19 +8,22 @@ export default class Map extends Component {
 	onClickShops() {
     this.props.getPlaces(this.props.shops);
   }
+
   onClickPharmacies() {
   	this.props.getPlaces(this.props.hotels);
   }
+
   onClickClubs() {
   	this.props.getPlaces(this.props.clubs);
   }
 
   handleMarkerClick(ref, marker) {
-    console.log(ref)
+    ref.showInfo = true;
+    console.log(ref);
+    console.log(marker);
   }
 
   renderInfoWindow(ref, marker) {
-  	console.log(marker.info)
     return (
 
       <InfoWindow 
@@ -67,7 +70,6 @@ export default class Map extends Component {
 				  </svg>
 				</div> 
 			}
-
         
       </InfoWindow>
       
@@ -90,7 +92,6 @@ export default class Map extends Component {
 		      <GoogleMapLoader
 		        containerElement={
 		          <div
-		            {...this.props}
 		            style={{
 		              height: '100%'
 		            }} >
@@ -111,7 +112,7 @@ export default class Map extends Component {
 		                  ref={ref}
 		                  position={ marker.position }
 		                  onClick={this.handleMarkerClick.bind(this, marker)} >
-		                  {this.renderInfoWindow(ref, marker)}
+		                  {marker.showInfo ? this.renderInfoWindow(ref, marker) : null}
 		                </Marker>
 		              );
 		                

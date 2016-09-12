@@ -9,12 +9,12 @@ const initialState = {
 		{
 			position: new google.maps.LatLng(-25.363884, 130.044922),
 			info: 'shops',
-			showInfo: false
+			showInfo: true
 		},
 		{
 			position: new google.maps.LatLng(-20.363883, 130.044921),
 			info: 'shops',
-			showInfo: false
+			showInfo: true
 		},
 		{
 			position: new google.maps.LatLng(-20.363881, 136.044922),
@@ -23,43 +23,42 @@ const initialState = {
 		{
 			position: new google.maps.LatLng(-24.363885, 136.044923),
 			info: 'shops',
-			showInfo: false
+			showInfo: true
 		},
 		{
 			position: new google.maps.LatLng(-25.363885, 133.044923),
 			info: 'shops',
-			showInfo: false
+			showInfo: true
 		}
 	],
 	hotels: [
 		{
 			position: new google.maps.LatLng(-21.363882, 130.044922),
 			info: 'hotels',
-			showInfo: false
+			showInfo: true
 		},
 		{
 			position: new google.maps.LatLng(-20.363882, 134.044922),
 			info: 'hotels',
-			showInfo: false
+			showInfo: true
 		}
 	],
 	clubs: [
 		{
 			position: new google.maps.LatLng(-30.363882, 130.044922),
 			info: 'clubs',
-			showInfo: false
+			showInfo: true
 		}
 	],
 	test: [
 		{
 			position: new google.maps.LatLng(-30.363882, 130.044922),
 			info: 'clubs',
-			showInfo: false
+			showInfo: true
 		}
 	],
 	fetching: false
 }
-
 
 export default function places(state = initialState, action) {
   switch (action.type) {

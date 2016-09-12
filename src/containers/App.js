@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux'
 import { GoogleMapLoader, GoogleMap, InfoWindow, Marker } from "react-google-maps";
 import { connect } from 'react-redux';
 
-import Map from '../components/Map'
-import * as MainActions from '../actions/MainActions'
+import Map from '../components/Map';
+import * as MainActions from '../actions/MainActions';
 
-import data from '../data/data.json';
+// import data from '../data/data.json';
 
 class App extends Component  {
   render() {
@@ -21,7 +21,7 @@ class App extends Component  {
         <Map 
           center={center.center}
           shops={places.shops}
-          pharmacies={places.pharmacies}
+          hotels={places.hotels}
           clubs={places.clubs}
           test={places.test}
           getPlaces={getPlaces}
@@ -44,4 +44,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

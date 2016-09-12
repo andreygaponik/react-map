@@ -7,14 +7,14 @@ export const UPDATE_LOCATIONS = 'UPDATE_LOCATIONS';
 export function getPlaces(test) {
   return (dispatch) => {
     dispatch({
-      type: FETCH_LOCATIONS_START ,
+      type: FETCH_LOCATIONS_START,
       fetching: true
-    })
+    });
 
-      dispatch({
-        type: FETCH_LOCATIONS_SUCCESS,
-        payload: test
-      })
+    dispatch({
+      type: FETCH_LOCATIONS_SUCCESS,
+      payload: test
+    });
   }
 }
 
